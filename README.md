@@ -1,6 +1,6 @@
 # Search Relevance Optimization
 
-I built this for a SurveyMonkey partnership project through Boston College (Nov 2025). Their help center search was basically text matching — users would type "how to create a form" and the article titled "Designing Your Survey" wouldn't show up. The relevant pages existed, they just weren't surfacing.
+I built this for a SurveyMonkey partnership project through Boston College (Nov 2025). Their help center search was basically text matching; users would type "how to create a form" and the article titled "Designing Your Survey" wouldn't show up. The relevant pages existed, they just weren't surfacing.
 
 ## What I found
 
