@@ -51,14 +51,23 @@ I originally tried a CrossEncoder (ms-marco-MiniLM) for reranking but it took 40
 
 ```bash
 pip install -r requirements.txt
+```
 
-# crawl the help center (skips if articles.csv already exists)
+Crawl the help center (skips if articles.csv already exists):
+
+```bash
 python -m src.main --step crawl
+```
 
-# precompute document embeddings
+Precompute document embeddings:
+
+```bash
 python -m src.embedder
+```
 
-# run retrieval + evaluation
+Run retrieval and evaluation:
+
+```bash
 python -m src.main --step run --rewrite qppgen --split unseen
 ```
 
