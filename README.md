@@ -35,21 +35,16 @@ For ambiguous queries, there's a QPP (Query Performance Prediction) layer that c
 I originally tried a CrossEncoder (ms-marco-MiniLM) for reranking but it took 40-60 seconds per batch on my laptop. The precomputed embeddings approach is a dot product at query time - basically instant, no measurable accuracy loss on this corpus.
 
 ## Project structure
-src/
-config.py          — all tuning knobs (RRF k, reranker type, eval toggles)
-crawler.py         — BFS crawler for help.surveymonkey.com
-embedder.py        — precompute and cache MiniLM doc embeddings
-pipeline.py        — retrieval, fusion, reranking, evaluation loop
-reformulator.py    — QPP clarity scoring + flan-t5 query reformulation
-tools/
-split_golden.py    — train/test split of the golden dataset
-make_unseen_golden.py — generates unseen eval set from unlabeled corpus pages
-data/
-corpus/articles.csv
-SurveyMonkey_Golden_Dataset.xlsx
-outputs/
-docs/
-SurveyMonkey_Technical_Report.pdf
+├── app.py                 # Streamlit dashboard
+├── main.py                # CLI entry point
+├── config.py              # model + path config (.env)
+├── attacker_llm.py        # adversarial prompt generator
+├── support_bot.py         # chatbot under test
+├── evaluator_llm.py       # LLM judge + rating logic
+├── embeddings_utils.py    # embedding + cosine similarity
+├── redteam_runner.py      # attack → answer → evaluate loop
+├── report_builder.py      # JSON + Markdown reports
+└── policies/              # policy text files
 
 ## Running it
 
