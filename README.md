@@ -35,16 +35,17 @@ For ambiguous queries, there's a QPP (Query Performance Prediction) layer that c
 I originally tried a CrossEncoder (ms-marco-MiniLM) for reranking but it took 40-60 seconds per batch on my laptop. The precomputed embeddings approach is a dot product at query time - basically instant, no measurable accuracy loss on this corpus.
 
 ## Project structure
-├── app.py                 # Streamlit dashboard
-├── main.py                # CLI entry point
-├── config.py              # model + path config (.env)
-├── attacker_llm.py        # adversarial prompt generator
-├── support_bot.py         # chatbot under test
-├── evaluator_llm.py       # LLM judge + rating logic
-├── embeddings_utils.py    # embedding + cosine similarity
-├── redteam_runner.py      # attack → answer → evaluate loop
-├── report_builder.py      # JSON + Markdown reports
-└── policies/              # policy text files
+
+| File | What it does |
+|------|-------------|
+| src/config.py | Tuning knobs + eval toggles |
+| src/crawler.py | BFS help center crawler |
+| src/embedder.py | MiniLM embedding cache |
+| src/pipeline.py | Retrieval, RRF, reranking, eval |
+| src/reformulator.py | QPP + flan-t5 reformulation |
+| tools/split_golden.py | Train/test split |
+| tools/make_unseen_golden.py | Unseen eval set generator |
+| docs/ | Technical report PDF |
 
 ## Running it
 
